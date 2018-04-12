@@ -1,10 +1,16 @@
-FROM node:9.9.0-alpine
+FROM node:9.11.1-alpine
 
 # Add Docker repository
 RUN echo http://dl-6.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
 
 # Install development packages
 RUN apk add --no-cache --update bash curl git openssh docker && \
+    rm -rf /var/cache/apk/*
+
+# Install AWS CLI
+RUN apk --no-cache update && \
+    apk --no-cache add python py-pip py-setuptools ca-certificates groff less && \
+    pip --no-cache-dir install awscli && \
     rm -rf /var/cache/apk/*
 
 # Install Node.js packages
