@@ -1,7 +1,7 @@
 FROM node:9.11.1-alpine
 
 # Install development packages
-RUN apk add --no-cache --update bash curl git openssh docker jq && \
+RUN apk add --no-cache --update bash curl git openssh docker jq make && \
     rm -rf /var/cache/apk/*
 
 # Install AWS CLI
