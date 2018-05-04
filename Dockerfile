@@ -10,6 +10,10 @@ RUN apk --no-cache update && \
     pip --no-cache-dir install awscli && \
     rm -rf /var/cache/apk/*
 
+# Install ECS Deploy
+RUN curl https://raw.githubusercontent.com/silinternational/ecs-deploy/master/ecs-deploy | tee -a /usr/bin/ecs-deploy && \
+    chmod +x /usr/bin/ecs-deploy
+
 # Install Node.js packages
 RUN yarn global add \
     conventional-github-releaser \
