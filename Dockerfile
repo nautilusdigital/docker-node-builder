@@ -22,3 +22,5 @@ RUN curl https://raw.githubusercontent.com/silinternational/ecs-deploy/master/ec
 RUN yarn global add \
     conventional-github-releaser \
     bunyan
+
+RUN yarn config set ignore-engines true
